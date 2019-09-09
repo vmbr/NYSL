@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="apple-touch-icon" href="imagenes/nysl_logo.png">
+    <link rel="apple-touch-startup-image" href="imagenes/nysl_logo.png">
+    
+
+    <title>TGIF | Home</title>
+</head>
+<body>
+    <div id="app" class="container-fluid content">
+
+        <div class="header row align-items-center">
+            <div class="col-4">
+                <a href="index.html">
+                    <img id="back" src="imagenes/back-button.png" alt="back" style="display: none;">
+                    <img class="logoHomeTGIF" src="imagenes/nysl_logo.png" alt="TGIF Logo">  
+                </a>
+            </div>
+            <div class="col-8 titulo">
+                <h1><em>NYSL</em></h1>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center contenido main-page">
+            <div id="accordion" class="col col-md-9">
+                <div class="card">
+                    <div class="card-header card-header-ppal" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link card-button boton" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <b>FIXTURE</b>
+                            </button>
+                        </h5>
+                    </div>
+                    
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-bodyY">
+                            <div>
+                                <p class="parag">*The team in the left is Home team</p>
+                            </div>
+                                <div class="card" v-for="(division, key) in divisions">
+                                    <div class="card-header card-header-divisions inner-header" style="text-align: center" id="headingOne">
+                                        <h6 class="mb-0">
+                                            <button class="btn btn-link uU boton" data-toggle="collapse" v-bind:data-target=" '#' + key" aria-expanded="false" aria-controls="collapseOne1">
+                                                <b>{{key}}</b>
+                                            </button> 
+                                        </h6>
+                                    </div>
+                                
+                                    <div v-bind:id="key" class="collapse" aria-labelledby="headingOne" data-parent="#collapseOne">
+                                        <div class="card-bodyU text-center d-flex justify-content-center">
+                                            <table class="table table-striped table-sm" style= "margin-bottom: 0px;">
+                                                <tbody> 
+                                                    <tr class="text-center" v-for="match in division">
+                                                    
+                                                            <th scope="col-1 col-sm-1"><sup><u>{{match.date_day}}/{{match.date_month}}</sup></u></th>
+                                                  
+                                                            <!--<td scope="col-11 col-sm-11"><a class="game" v-bind:href="'game_detail.html?gameId=' + match.match_ID +'&'+ 'locacion=' + match.home_team">{{match.home_team}} <b>vs</b> {{match.away_team}}</a></td>-->
+                                                            <td scope="col-11 col-sm-11"><button class="gameDetail-link" v-on:click="searchGame(match)">{{match.home_team}} <b>vs</b> {{match.away_team}}</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-header card-header-ppal" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed card-button boton" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <b>STATS</b>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-hover"> 
+                                    <thead class="thead-dark">
+                                        <tr>        
+                                            <th scope="col">#</th>
+                                            <th scope="col">Team</th>
+                                            <th scope="col">GP</th>
+                                            <th scope="col">Pts</th>
+                                        </tr>    
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>AJ Katzenmaier</td>
+                                            <td>2</td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Howard A Yeager</td>
+                                            <td>2</td>
+                                            <td>4</td>
+                                        </tr>
+                                         <tr>
+                                            <td>3</td>
+                                            <td>North Elementary</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>South Elementary</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Marjorie P Hart</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Greenbay</td>
+                                            <td>2</td>
+                                            <td>0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                            <div class="card-header card-header-ppal" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed card-button boton" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <b>LOCATIONS</b>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <table class="table-striped">    
+                                        <tbody>
+                                        <tr>
+                                            <td><u><b>AJ Katzenmaier Elementary</u></b></td>
+                                            <td rowspan="2"><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.654246110987!2d-87.6312390845582!3d41.90029237922041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34e07f6bac3%3A0x68a82e5d59952c86!2s24+W+Walton+St%2C+Chicago%2C+IL+60610%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557763833908!5m2!1ses!2sar"></iframe></td>
+                                        </tr>
+                                        <tr class="bordeMap">
+                                            <td>24 W. Walton St., Chicago, IL 60610</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><u><b>Greenbay Elementary</u></b></td>
+                                            <td rowspan="2"><iframe  class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.02569867928!2d-87.64003334952976!3d41.91380627105697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34073f306a3%3A0x9e1726bbf8f23f0e!2s1734+N+Orleans+St%2C+Chicago%2C+IL+60614%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557764155846!5m2!1ses!2sar"></iframe></td>
+                                        </tr>
+                                        <tr class="bordeMap"> 
+                                            <td>1734 N. Orleans St., Chicago, IL 60614</td>
+                                        </tr>
+                                        <tr>
+                                            <td><u><b>Howard A Yeager Elementary</b></u></td>
+                                            <td rowspan="2"><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.585497389421!2d-87.66511994952944!3d41.923268570464344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f9b8d2d%3A0x62ad8b907dd755d6!2s2245+N+Southport+Ave%2C+Chicago%2C+IL+60614%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557764195495!5m2!1ses!2sar"></iframe></td>
+                                        </tr> 
+                                        <tr class="bordeMap">   
+                                            <td>2245 N. Southport Ave., Chicago, IL 60614</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b><u>Marjorie P Hart Elementary</b></u></td>
+                                            <td rowspan="2"><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.291728957825!2d-87.64809164952922!3d41.9295822700689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd30f2630e551%3A0x3e719e44a5cef714!2s2625+N+Orchard+St%2C+Chicago%2C+IL+60614%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557764230161!5m2!1ses!2sar"></iframe></td>
+                                        </tr>
+                                        <tr class="bordeMap">
+                                            <td>2625 N. Orchard St., Chicago, IL 60614</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b><u>North Elementary</b></u></td>
+                                            <td rowspan="2"><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.3376141643457!2d-87.64838234953001!3d41.90710047147674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd33af0e6ccc3%3A0x26c81c1d557667da!2s1409+N+Ogden+Ave%2C+Chicago%2C+IL+60610%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557764257932!5m2!1ses!2sar"></iframe></td>
+                                        </tr>
+                                        <tr class="bordeMap">
+                                            <td>1409 N. Ogden Ave., Chicago, IL 60610</td>
+                                        </tr>
+                                        <tr>
+                                            <td></b><u>South Elementary</b></u></td>
+                                            <td rowspan="2"><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.74776483131!2d-87.65356074952955!3d41.919780770682735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3196fb41dc7%3A0x970be7f7d6336df5!2s2101+N+Fremont+St%2C+Chicago%2C+IL+60614%2C+EE.+UU.!5e0!3m2!1ses!2sar!4v1557764290388!5m2!1ses!2sar"></iframe></td>
+                                        </tr>
+                                        <tr class="bordeMap">
+                                            <td>2101 N. Fremont St., Chicago, IL 60614</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>   
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>    
+          
+    
+
+        <!--ABOUT-->
+        <div id="about" class="container-fluid" style="display: none;">
+            <div class="row justify-content-center contenido">
+                <div class="footerDetail col-md-7">
+                    <h2>ABOUT</h2>
+                    <div class="row">
+                        <p><u><b>Mission</b></u></p> 
+                        <p>To support young athletes living in Chicago's northside neighborhoods, who have an interest in learning and playing soccer, with opportunities to learn and practice skills related to the game of soccer, specifically those skills around team cooperation and good sportsmanship.</p>
+                    </div>
+                    <div class="row">
+                        <p><u><b>Vision</b></u></p>
+                        <p>The North Side Youth Soccer League aspires to develop strong, well-rounded, and mindful athletes through the building of character, self-discipline, and leadership.</p>
+                    </div>
+                    <div class="row">
+                        <p><u><b>General Information</b></u></p>
+                        <p>The North Side Youth Soccer League was established in 1996 to provide athletes residing in Chicago's northside neighborhoods an environment in which to learn and play soccer. To be a member of NYSL, you must be between the ages of 4 - 12 and reside in a Chicago northside neighborhood. NYSL is run by a small full-time staff, and relies on the generous volunteer time of parents and previous league members.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--ABOUT-->
+
+        <!--RULES-->
+        <div id="rules" class="container-fluid" style="display: none;">
+                <div class="row contenido">
+                        <div class="col-3">
+                        <h2>RULES</h2>
+                        </div>
+                    <div class="footerDetailRules col-md-11">
+                        
+                        
+                        <p>FIFA rules shall govern NYSL play except as modified herein.</p>
+                        
+                        
+                        <h3><strong>SPORTSMANSHIP</strong></h3>
+                        <ul class="cuadrados">
+                            <li><p>The common interest that members of the Association share is to inspire youth to practice the ideals of sportsmanship and fair play. Any player, coach, team, parent, spectator, administrator or referee whose behavior detracts from this purpose is subject to disciplinary action regardless of technical soccer background, expertise, accomplishments or standing.</p></li>
+                        </ul>
+                        
+                        <h3><strong>FIFA FIELD REGULATIONS</strong></h3>
+                        <ol type="1">
+                            <li>DIMENSIONS. 
+                                FIFA Law 1 provides for flexible external field dimensions within a given maximum and minimum width and length. These dimensions should be adhered to for all fields used by teams under 12 and older.</li>
+                            
+                            <li>COMPETITION FIELDS. Fields used within the competition program must be a minimum of 100 x 60 yards. Leagues, districts or associations participating in the state competition program that are unable to provide a field that meets these minimum requirements must advise the State Competition Board which will assign its Fields Committee to inspect the field and recommend to the Board whether or not a waiver of the minimum dimensions should be granted. Teams from leagues, districts or associations that are unable to provide an acceptable field may be required to play all their games away.</li>
+                            
+                            <li>FIELDS USED BY YOUNG AGE GROUPS.
+                                <ol type="a">
+                                    <li>U-6 play on a field approximately 20 X 40 yards with no penalty areas. Fields for older age groups should be progressively larger.</li>
+                                    <li>U-8 plays on a field 40-50 yards in length and 20-30 yards width. </li>
+                                    <li>U-10 play on a field 70-80 yards in length and 40-50 yards in width. </li>
+                                    <li>In addition, fields used by young age groups may have their internal dimensions and size of goal similarly modified.</li>
+                                </ol>
+                            </li>
+                            <li>TEAM BENCH AREAS 
+                                <ol type="a">
+                                    <li>Recreation and District Programs
+                                        <ul class="cuadrados">
+                                        <li>The decision for team/spectator placement on the field will be made by the governing body of that team. A team’s bench area shall consist of that area at least one (1) yard away from the touchline and extending to twenty yards (20) both ways from the halfway line. In the event that field conditions require team benches to be on the same side of the field, a team’s bench area shall consist of that area two (2) yards away from the touchline and extending twenty yards one (1) way from the halfway line.</li>
+                                        <li>The home team has first choice as to where it wishes to locate its bench area. Coaches and substitutes are required to remain within their bench area during the game. Parents and spectators should occupy the same side of the field as the team they are supporting.</li>
+                                        </ul>
+                                    </li>
+                                    <li>State Competition League Only
+                                        <ul class="cuadrados">
+                                        <li>Except where it is determined by the referee to be
+                                        impractical, team bench areas shall be along the same touchline. Each team bench area shall be located two yards outside the touchline, beginning not closer than five yards from midfield and extending not further than twenty yards from midfield. The home team shall have the right to choose the location of its bench area. Coaches and substitutes must remain within their team's bench area during the game.</li>
+                                        <li>Parents and spectators must occupy the sideline opposite the team bench areas. Supporters of a team must assemble on the side of the midfield facing the team bench area of that team. There shall be a buffer zone extending ten yards on each side of the midfield that may not be occupied by parents or spectators. Match officials shall be empowered to enforce these provisions and may suspend or terminate games in the event that any team, coach, parent, or spectator declines to abide by requests from match officials to comply with these standards.</li>
+                                        </ul>
+                                    </li>
+                                </ol> 
+                            </li>
+                        </ol> 
+                        
+                        <h3><strong>EQUIPMENT</strong></h3>
+                        <ul class="cuadrados">
+                            <li><p>We will abide by and accept equipment standards as defined by FIFA, USSF and USYSA.</p></li>
+                        </ul>
+                        
+                        <h3><strong>NUMBER OF PLAYERS</strong></h3>
+                        <ul class="cuadrados">
+                            <li><b>TEAM SIZE.</b> Except as noted below, team rosters shall consist of not less than eleven nor more than eighteen players. A team must have at least seven (7) players present and able to play before referees are permitted to start a sanctioned game. No more than eleven (11) players per team may be on the field at any one time during the game</li>
+                            <li><b>SIZE OF AGE GROUP TEAMS.</b> In order to give player’s maximum opportunity to develop in the game of soccer, U-6 through U-1O play modified rules and size of roster as stated in United States Youth Soccer Association (USYSA) rules. It is strongly recommended that U-6 and U-8 play 4 v 4. UYSA shall not sanction games involving teams under 10 or younger unless such games are conducted with not more than eight (8) players per side. (National rule 4036 section 2)</li>
+                            <li>Recreational/Developmental players at other ages or where numbers in the playing area are low are strongly encouraged to play small-sided games on reduced field size.</li>
+                        </ul>
+                        
+                        <h3><strong>SUBSTITUTIONS</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Teams may make an unlimited number of substitutions at the times indicated below. A player who has been replaced may re-enter the game as a substitute at a later time.
+                            
+                            <ol type="1">
+                                <li>Prior to a throw-in your favor.</li>
+                                <li>Prior to a goalkick by either team.</li>
+                                <li>After a goal by either team.</li>
+                                <li>After an injury, by either team, when the referee stops play.</li>
+                                <li>At half time.</li>
+                                <li>When a player has been “cautioned”, only the player receiving “caution” may be substituted.</li>     
+                            </ol>     
+                            </li>
+                    
+                        </ul>
+                        
+                        <h3><strong>CONFISCATED PLAYER PASSES</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Passes of any individual(s) ejected from any match shall be retained after the match by the referee. The pass of any individual who has received a third caution (yellow card) during a playing year shall be confiscated by the referee at the conclusion of the match in which the third caution was received. That player will be suspended from playing in the next game in which the offending participant would otherwise be eligible to participate. This process will continue so that for every third yellow card received during a playing year, the player will be suspended from playing in the next game (after the receipt of a third yellow card) for which the offending participate would otherwise be eligible to participate. The referee shall deliver all confiscated passes to the UYSA State Office within forty-eight (48) hours of the conclusion of the match.</li>
+                        </ul>
+                        
+                        <h3><strong>ALL-PLAY</strong></h3>
+                        <ul class="cuadrados">
+                            <li>All-play means that every recreation player on every team shall play at least fifty percent of each game. Coaches in the competition program are encouraged to play their players 50% of each game. 
+                                <ul style="list-style-type:circle;">
+                                    <li>A Coach shall be permitted to not play a player 50% of each game under special circumstances, e.g., unexcused absences from practice and/or games, ungentlemanly conduct at practice and/or games, and injuries.</li>
+                                </ul></li>
+                        </ul>
+                        
+                        <h3><strong>PLAYERS’ EQUIPMENT</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Where the uniform colors of both teams are so similar that the referee orders a change, the designated home team must change to colors distinct from those of the opponent.</li>
+                        </ul>
+                        
+                        <h3><strong>MIXED TEAMS</strong></h3>
+                        <ul class="cuadrados">
+                            <li><b>GIRLS PLAYING ON BOYS’ TEAMS.</b> Girls are eligible to play on boys’ 4 teams with parent/guardian permission.</li>
+                            <li><b>TYPES OF TEAMS.</b> Teams with females only are Girls Teams. All others are Boys Teams.</li>
+                        </ul>
+                        
+                        <h3><strong>COACHING FROM THE SIDELINES</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Coaching from the sidelines, i.e., giving direction to one’s own team on points of strategy and position, is permitted provided that:
+                                <ol type="1">
+                                    <li>No mechanical, electrical or other devices are used to amplify the voice.</li>
+                                    <li>The tone of voice is informative and not a harangue.</li>
+                                    <li>The coaching takes place within the team’s bench area.</li>
+                                    <li>No coach, substitute, player or spectator is to make derogatory remarks or gestures to the referees, linesmen, players, substitutes or spectators.</li>
+                                    <li>No coach, player, substitute or spectator is to use profanity or incite, in any manner, disruptive behavior of any kind.</li>
+                                    </ol></li>
+                        </ul>
+                        
+                        <h3><strong>GAME TERMINATION</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Any game terminated after 15 minutes into the second half by the referee by reason of the elements, or by reason of grave disorder on the part of the coaches, players or spectators of a team that is losing at the point that the game is terminated, shall stand as a completed game. If a team is ahead and the game is called because of their actions they will lose the game 1-0.</li>
+                        </ul>
+                        
+                        <h3><strong>CONDITIONS OF REPLAY OF GAMES</strong></h3>
+                        <ul class="cuadrados">
+                            <li>Any game which is required to be replayed as a result of any protest or appeal, shall be subject to the following conditions:
+                                <ol type="1">
+                                <li>The game shall be replayed on the same field, as was the
+                                suspended or protested game, unless otherwise agreed by the
+                                coaches.</li>        
+                                <li>Impartial referees shall be assigned to the new game.</li>
+                                <li>The PROTEST AND APPEALS COMMITTEE shall have the power
+                                to impose such additional conditions on the replay of the game, as it deems appropriate under the circumstances.</li>
+                                </ol></li>
+                        </ul>
+                        
+                        <h3><strong>REFEREE RESPONSIBLITIES</strong></h3>
+                        <ul class="cuadrados">
+                            <li>The referee shall verify the identity of the players and coaches with his/her
+                            player pass. He shall collect the passes of those players and coaches who
+                            are to participate in the game. The referee must allow no player into the
+                            game for whom he/she has no pass.</li>
+                            <li>Upon completion of the game, the referee shall send his/her report to the UYSA offices within four (4) days, holidays excluded. If a coach or a player is ejected, the referee report form is required within forty-eight (48) hours along with the player/coach pass.</li>
+                            <li>A referee report form must be filed for every game played.</li>
+                            <li>Each team must determine whether or not referees are registered prior to the start of each game. Upon request, referees officiating at any game must willingly and without bias, show documentation regarding their certification level and registration standing with the USSF to coach, assistant coach, or team captain of teams participating in that game. Prior to the game a coach may decide to postpone the game if the referees do not produce the requested documentation. The game is to be replayed at a later date.</li>
+                            <li>Referees not complying with this section will be referred to the Disciplinary Committee.</li>
+                        </ul>
+                                 
+                    </div>      
+                   
+                </div>
+            </div>
+        
+        <!--RULES-->
+
+        <!--CONTACT-->
+        <div id="contact" class="container-fluid" style="display: none;">
+            <div class="row justify-content-center contenido">
+                <div class="footerDetail col-md-5">
+                    <div class="col-3">
+                        <h2>CONTACT</h2>
+                    </div>
+                    <div>
+                        <nav><p>Please email us at: <a href="mailto:nysl@chisoccer.org">nysl@chisoccer.org</a></p></nav>
+                        <p>We will reply to your email as soon as we can</p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--CONTACT-->
+    
+        <!--GAME_DETAIL-->
+    <div id="gameDetail" class="container-fluid" style="display: none;">
+        <div class="row justify-content-center">
+            <div  class="gameDetail col-md-7" >
+                
+                <p class="divDate">Category: <b>{{matchDetail.division}}</b></p>
+                <p class="divDate"><u>{{matchDetail.date_day}}/{{matchDetail.date_month}}</u></p>
+                <p class="teams"><b>{{matchDetail.home_team}}</b></p>
+                <p class="teams">vs</p>
+                <p class="teams"><b>{{matchDetail.away_team}}</b></p>  
+            
+                <div class="row">
+                    <span><b><u>  Location:</u></b>-.</span>
+                    <span class="white">{{locationsDetail.location}}</span> 
+                </div>
+                <div class="row">
+                    <span class="white"><b>{{locationsDetail.school}}</b> (home team)</span>    
+                </div>
+            </div>
+            <div class="gameDetailmap col-md-7 contenido">
+                <div class="row">
+                    <iframe class="mapaDetail" v-bind:src="locationsDetail.gmap"></iframe></td>
+                </div>   
+            </div>
+        </div>
+    </div>
+        <!--GAME_DETAIL-->
+
+    </div>
+    </div>
+
+
+        <div class="elFooter">
+            <div class="buttonFoot">
+                <a id="about-link" href="#" style="color: rgb(158, 158, 158);">
+                    <img src="imagenes/about.png" alt="About">
+                    <br>
+                    <span>About</span>
+                </a>
+            </div>
+            <div class="buttonFoot">
+                <a id="rules-link" href="#" style="color: rgb(158, 158, 158);">
+                    <img src="imagenes/rules.png" alt="Rules"> 
+                    <br>
+                    <span>Rules</span>
+                </a>
+            </div>
+            <div class="buttonFoot">
+                <a id="contact-link" href="#" style="color: rgb(158, 158, 158);">
+                    <img src="imagenes/@.png" alt="Contact"> 
+                    <br>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
